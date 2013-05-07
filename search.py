@@ -36,7 +36,6 @@ def login():
 
     print res.info().getheader('Set-Cookie')
     
-
 if __name__ == "__main__":
     print login()
 
