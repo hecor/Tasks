@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PATDOC SYSTEM "ST32-US-Grant-025xml.dtd" [
+<!ENTITY USD0475834-20030617-D00000.TIF SYSTEM "USD0475834-20030617-D00000.TIF" NDATA TIF>
+<!ENTITY USD0475834-20030617-D00001.TIF SYSTEM "USD0475834-20030617-D00001.TIF" NDATA TIF>
+<!ENTITY USD0475834-20030617-D00002.TIF SYSTEM "USD0475834-20030617-D00002.TIF" NDATA TIF>
+]>
+<PATDOC DTD="2.5" STATUS="Build 20030116">
+	<SDOBI>
+		<B100>
+			<B110><DNUM><PDAT>D0475834</PDAT></DNUM></B110>
+			<B130><PDAT>S1</PDAT></B130>
+			<B140><DATE><PDAT>20030617</PDAT></DATE></B140>
+			<B190><PDAT>US</PDAT></B190>
+		</B100>
+		<B200>
+			<B210><DNUM><PDAT>29145635</PDAT></DNUM></B210>
+			<B211US><PDAT>29</PDAT></B211US>
+			<B220><DATE><PDAT>20010726</PDAT></DATE></B220>
+		</B200>
+		<B300>
+			<B310><DNUM><PDAT>DM/054 859</PDAT></DNUM></B310>
+			<B320><DATE><PDAT>20010205</PDAT></DATE></B320>
+			<B330><CTRY><PDAT>WO</PDAT></CTRY></B330>
+		</B300>
+		<B400>
+			<B472>
+				<B473US/>
+				<B474><PDAT>14</PDAT></B474>
+			</B472>
+		</B400>
+		<B500>
+			<B510>
+				<B511><PDAT>0205</PDAT></B511>
+				<B516><PDAT>7</PDAT></B516>
+			</B510>
+			<B520>
+				<B521><PDAT>D 2500</PDAT></B521>
+			</B520>
+			<B540><STEXT><PDAT>Scarf</PDAT></STEXT></B540>
+			<B560>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>2405921</PDAT></DNUM>
+							<DATE><PDAT>19460800</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Wipper et al.</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>D 2502 X</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>D183646</PDAT></DNUM>
+							<DATE><PDAT>19581000</PDAT></DATE>
+							<KIND><PDAT>S</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Cash</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>D 2502</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>3238536</PDAT></DNUM>
+							<DATE><PDAT>19660300</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Gettinger</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>  2207</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>3260292</PDAT></DNUM>
+							<DATE><PDAT>19660700</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Costello</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>  22003 X</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>D339676</PDAT></DNUM>
+							<DATE><PDAT>19930900</PDAT></DATE>
+							<KIND><PDAT>S</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Geving</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>D 2500</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+			</B560>
+			<B570>
+				<B577><PDAT>1</PDAT></B577>
+				<B578US><PDAT>1</PDAT></B578US>
+			</B570>
+			<B580>
+				<B582><PDAT>D 2500</PDAT></B582>
+				<B582><PDAT>D 2502</PDAT></B582>
+				<B582><PDAT>D 2504</PDAT></B582>
+				<B582><PDAT>D 2880</PDAT></B582>
+				<B582><PDAT>D 2600</PDAT></B582>
+				<B582><PDAT>D 2602</PDAT></B582>
+				<B582><PDAT>  2207</PDAT></B582>
+				<B582><PDAT>  22003</PDAT></B582>
+				<B582><PDAT>  2204</PDAT></B582>
+			</B580>
+			<B590><B595><PDAT>2</PDAT></B595><B596><PDAT>4</PDAT></B596><B597US/>
+			</B590>
+		</B500>
+		<B700>
+			<B720>
+				<B721>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Martin</PDAT></FNM><SNM><STEXT><PDAT>Margiela</PDAT></STEXT></SNM></NAM>
+						<ADR>
+							<CITY><PDAT>Paris</PDAT></CITY>
+							<CTRY><PDAT>FR</PDAT></CTRY>
+						</ADR>
+					</PARTY-US>
+				</B721>
+			</B720>
+			<B730>
+				<B731>
+					<PARTY-US>
+						<NAM><ONM><STEXT><PDAT>Hermes Sellier</PDAT></STEXT></ONM></NAM>
+						<ADR><CITY><PDAT>Paris</PDAT></CITY><CTRY><PDAT>FR</PDAT></CTRY></ADR>
+					</PARTY-US>
+				</B731>
+				<B732US>
+					<PDAT>03</PDAT>
+				</B732US>
+			</B730>
+			<B740>
+				<B741>
+					<PARTY-US>
+						<NAM><ONM><STEXT><PDAT>Darby &amp; Darby</PDAT></STEXT></ONM></NAM>
+					</PARTY-US>
+				</B741>
+			</B740>
+			<B745>
+				<B746>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Paula A.</PDAT></FNM><SNM><STEXT><PDAT>Mortimer</PDAT></STEXT></SNM></NAM>
+					</PARTY-US>
+				</B746>
+				<B748US><PDAT>2912</PDAT></B748US>
+			</B745>
+		</B700>
+	</SDOBI>
+	<SDODE>
+	</SDODE>
+	<SDOCL>
+		<CL>
+			<CLM ID="CLM-00001">
+				<PARA ID="P-00005" LVL="7"><PTEXT><PDAT>The ornamental design for a scarf, as shown and described.</PDAT></PTEXT></PARA>
+			</CLM>
+		</CL>
+	</SDOCL>
+</PATDOC>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE PATDOC SYSTEM "ST32-US-Grant-025xml.dtd" [
+<!ENTITY USD0475835-20030617-D00000.TIF SYSTEM "USD0475835-20030617-D00000.TIF" NDATA TIF>
+<!ENTITY USD0475835-20030617-D00001.TIF SYSTEM "USD0475835-20030617-D00001.TIF" NDATA TIF>
+<!ENTITY USD0475835-20030617-D00002.TIF SYSTEM "USD0475835-20030617-D00002.TIF" NDATA TIF>
+<!ENTITY USD0475835-20030617-D00003.TIF SYSTEM "USD0475835-20030617-D00003.TIF" NDATA TIF>
+<!ENTITY USD0475835-20030617-D00004.TIF SYSTEM "USD0475835-20030617-D00004.TIF" NDATA TIF>
+]>
+<PATDOC DTD="2.5" STATUS="Build 20030116">
+	<SDOBI>
+		<B100>
+			<B110><DNUM><PDAT>D0475835</PDAT></DNUM></B110>
+			<B130><PDAT>S1</PDAT></B130>
+			<B140><DATE><PDAT>20030617</PDAT></DATE></B140>
+			<B190><PDAT>US</PDAT></B190>
+		</B100>
+		<B200>
+			<B210><DNUM><PDAT>29141353</PDAT></DNUM></B210>
+			<B211US><PDAT>29</PDAT></B211US>
+			<B220><DATE><PDAT>20010504</PDAT></DATE></B220>
+		</B200>
+		<B400>
+			<B472>
+				<B473US/>
+				<B474><PDAT>14</PDAT></B474>
+			</B472>
+		</B400>
+		<B500>
+			<B510>
+				<B511><PDAT>0201</PDAT></B511>
+				<B516><PDAT>7</PDAT></B516>
+			</B510>
+			<B520>
+				<B521><PDAT>D 2706</PDAT></B521>
+			</B520>
+			<B540><STEXT><PDAT>Adjustable bra</PDAT></STEXT></B540>
+			<B560>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>4781651</PDAT></DNUM>
+							<DATE><PDAT>19881100</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Ekins</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450 79</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>4804351</PDAT></DNUM>
+							<DATE><PDAT>19890200</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Raml et al.</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450 58</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>4960112</PDAT></DNUM>
+							<DATE><PDAT>19901000</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Anderegg</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>  2118</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>5022887</PDAT></DNUM>
+							<DATE><PDAT>19910600</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Lawson</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450 57</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>5951364</PDAT></DNUM>
+							<DATE><PDAT>19990900</PDAT></DATE>
+							<KIND><PDAT>A</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Brown et al.</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450  5</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>6168498</PDAT></DNUM>
+							<DATE><PDAT>20010100</PDAT></DATE>
+							<KIND><PDAT>B1</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Wagner</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450  1</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>6319091</PDAT></DNUM>
+							<DATE><PDAT>20011100</PDAT></DATE>
+							<KIND><PDAT>B1</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Kilbride et al.</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>450  1</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+				<B561>
+					<PCIT>
+						<DOC><DNUM><PDAT>D452047</PDAT></DNUM>
+							<DATE><PDAT>20011200</PDAT></DATE>
+							<KIND><PDAT>S</PDAT></KIND>
+						</DOC>
+						<PARTY-US>
+							<NAM><SNM><STEXT><PDAT>Ditchfield et al.</PDAT></STEXT></SNM></NAM>
+						</PARTY-US>
+						<PNC><PDAT>D29100</PDAT></PNC></PCIT><CITED-BY-EXAMINER/>
+				</B561>
+			</B560>
+			<B570>
+				<B577><PDAT>1</PDAT></B577>
+				<B578US><PDAT>1</PDAT></B578US>
+			</B570>
+			<B580>
+				<B582><PDAT>D 2701</PDAT></B582>
+				<B583US><PDAT>D 2706-711</PDAT></B583US>
+				<B582><PDAT>D 2731</PDAT></B582>
+				<B582><PDAT>D 2737</PDAT></B582>
+				<B582><PDAT>D 2856</PDAT></B582>
+				<B582><PDAT>450  1</PDAT></B582>
+				<B583US><PDAT>450  3-  6</PDAT></B583US>
+				<B582><PDAT>450 41</PDAT></B582>
+				<B583US><PDAT>450 48- 49</PDAT></B583US>
+				<B583US><PDAT>450 52- 57</PDAT></B583US>
+				<B582><PDAT>450 86</PDAT></B582>
+				<B582><PDAT>450 88</PDAT></B582>
+				<B582><PDAT>450 90</PDAT></B582>
+				<B583US><PDAT>450 36- 39</PDAT></B583US>
+				<B583US><PDAT>450 60- 61</PDAT></B583US>
+				<B582><PDAT>  2 67</PDAT></B582>
+				<B583US><PDAT>  2118-120</PDAT></B583US>
+				<B582><PDAT>  2459</PDAT></B582>
+				<B582><PDAT>  2460</PDAT></B582>
+			</B580>
+			<B590><B595><PDAT>4</PDAT></B595><B596><PDAT>4</PDAT></B596><B597US/>
+			</B590>
+		</B500>
+		<B700>
+			<B720>
+				<B721>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Jane Starling</PDAT></FNM><SNM><STEXT><PDAT>Hoffman</PDAT></STEXT></SNM></NAM>
+						<ADR>
+							<CITY><PDAT>Oroville</PDAT></CITY>
+							<STATE><PDAT>CA</PDAT></STATE>
+						</ADR>
+					</PARTY-US>
+				</B721>
+				<B721>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Jon F.</PDAT></FNM><SNM><STEXT><PDAT>Hoffman</PDAT></STEXT></SNM></NAM>
+						<ADR>
+							<CITY><PDAT>Oroville</PDAT></CITY>
+							<STATE><PDAT>CA</PDAT></STATE>
+						</ADR>
+					</PARTY-US>
+				</B721>
+			</B720>
+			<B730>
+				<B731>
+					<PARTY-US>
+						<NAM><ONM><STEXT><PDAT>Aztec-Life, Inc.</PDAT></STEXT></ONM></NAM>
+						<ADR><CITY><PDAT>Oroville</PDAT></CITY><STATE><PDAT>CA</PDAT></STATE></ADR>
+					</PARTY-US>
+				</B731>
+				<B732US>
+					<PDAT>02</PDAT>
+				</B732US>
+			</B730>
+			<B740>
+				<B741>
+					<PARTY-US>
+						<NAM><ONM><STEXT><PDAT>The Kline Law Firm</PDAT></STEXT></ONM></NAM>
+					</PARTY-US>
+				</B741>
+			</B740>
+			<B745>
+				<B746>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Louis S.</PDAT></FNM><SNM><STEXT><PDAT>Zarfas</PDAT></STEXT></SNM></NAM>
+					</PARTY-US>
+				</B746>
+				<B747>
+					<PARTY-US>
+						<NAM><FNM><PDAT>Deanne</PDAT></FNM><SNM><STEXT><PDAT>Levy</PDAT></STEXT></SNM></NAM>
+					</PARTY-US>
+				</B747>
+				<B748US><PDAT>2914</PDAT></B748US>
+			</B745>
+		</B700>
+	</SDOBI>
+	<SDODE>
+	</SDODE>
+	<SDOCL>
+		<CL>
+			<CLM ID="CLM-00001">
+				<PARA ID="P-00006" LVL="7"><PTEXT><PDAT>The ornamental design for an adjustable bra, as shown and described.</PDAT></PTEXT></PARA>
+			</CLM>
+		</CL>
+	</SDOCL>
+</PATDOC>
+
+
