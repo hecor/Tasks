@@ -1,86 +1,126 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import urllib, urllib2
-from httpc import *
 
-curl = CurlHTTPC()
+from selenium import webdriver
+from selenium.common.exceptions import *
+from selenium.webdriver.common.keys import Keys
+from time import sleep
+from subprocess import call
+import csv
 
-def login():
-    url = "https://pacer.login.uscourts.gov/cgi-bin/check-pacer-passwd.pl"
 
-    values = {
-                'loginid': 'ru0673',
-                'passwd': 'xw215165',
-                'client': '',
-                'faction': 'Login',
-                'appurl': 'https://pcl.uscourts.gov/search',
-                'court_id': '',
-              }
+def download_by_company(browser, company):
+    browser.get('https://pacer.login.uscourts.gov/cgi-bin/login.pl?appurl=https://pcl.uscourts.gov/search')
+        
+    elem = browser.find_element_by_id('loginid')
+    elem.send_keys('ru0673')
+    elem = browser.find_element_by_id('passwd')
+    elem.send_keys('xw215165')
+    elem = browser.find_element_by_id('submit')
+    elem.send_keys(Keys.RETURN)
 
-    header = {
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-            'Accept-Charset': 'UTF-8,*;q=0.5',
-            'Accept-Encoding': 'gzip,deflate,sdch',
-            'Accept-Language': 'en,zh-CN;q=0.8,zh;q=0.6,en-US;q=0.4',
-            'Cache-Control': 'max-age=0',
-            'Connection': 'keep-alive',
-            'Content-Length': '109',
-            'Content-Type': 'application/x-www-form-urlencoded',
-            'Host': 'pacer.login.uscourts.gov',
-            'Origin': 'https://pacer.login.uscourts.gov',
-            'Referer': 'https://pacer.login.uscourts.gov/cgi-bin/login.pl?appurl=https://pcl.uscourts.gov/search',
-            'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.64 Safari/537.31',
-            'Cookie': 'PacerClientCode=""; PacerPref="receipt=Y"',
-            }
 
-    res = curl.post(url, urllib.urlencode(values), header)
+    elem = browser.find_element_by_id('li_cv')
+    elem.click()
+    elem = browser.find_element_by_id('cstext')
+    if elem.text == 'Advanced Search':
+        elem.click()
+    elem = browser.find_element_by_xpath("//input[contains(@value, 'Select nature of suit')]")
+    elem.click()
+    elem.send_keys('830')
+    elem.send_keys(Keys.RETURN)
+    elem = browser.find_element_by_id('date_filed_start')
+    elem.send_keys('01/01/2000')
+    elem = browser.find_element_by_id('date_filed_end')
+    elem.send_keys('12/31/2010')
+    elem = browser.find_element_by_id('party')
+    elem.send_keys(company)
+    elem = browser.find_element_by_id('submit')
+    elem.click()
 
-    return res['header']
+
+    elem = browser.find_element_by_xpath('//*[@id="dl_div"]/img')
+    elem.click()
+    sleep(3)
+    browser.execute_script('dlOptions();')
+    elem = browser.find_element_by_xpath('//*[@id="dl_sel"]/span[3]/input[3]')
+    elem.click()
+    elem = browser.find_element_by_id('dl_yes')
+    elem.click()
+
+    sleep(30)
+    clean_and_sort(company, browser)
+
+def clean_and_sort(company, browser):
+    company_name = company.replace(' ', '_').replace('.', '_').replace('-', '_').replace('&', '_').replace("'", "_")
+    call("mv /home/chawu/Downloads/ru0673_uspci.csv /home/chawu/Downloads/patents_original/"+company_name+".csv", shell=True)
+
+    query_length = len(company.split(' '))
+    rows = []
+    stats = {}
+    first_line = True
+    with open('/home/chawu/Downloads/patents_original/'+company_name+'.csv', 'rb') as csvfile:
+        reader = csv.reader(csvfile, delimiter=',', quotechar='"')
+        for row in reader:
+            if first_line:
+                first_line = False
+                continue
+
+            if query_length <= 1:
+                items = [i.lower() for i in row[0].split(' ')]
+                if company.lower() not in items:
+                    continue
+            
+            if row[3] not in stats.keys():
+                stats[row[3]] = 1
+            else:
+                stats[row[3]] = stats[row[3]] + 1
+
+            rows.append('\t'.join(add_case_property(row, company, browser)))
+
+    output = open('/home/chawu/Downloads/patents_clean/'+company_name+'.csv', 'w')
+    output.write('\n'.join(rows))
+    output.close()
+
+    call("sort -t'\t' -k 1,1 -k 4,4 /home/chawu/Downloads/patents_clean/"+company_name+".csv >/home/chawu/Downloads/patents_sorted/"+company_name+".csv", shell=True)
     
-def download():
-    url = 'https://pcl.uscourts.gov/download'
-    header = {
-            'Cookie': 'PacerUser="ru067301368070812                                VgiExokw6Qs"; PacerSession="/qIrk65kOCHIr9VGIdnn5L1anzMXe4m2mo8xBRCKYExL5t20e9hRjX/NFYjVxTQQjV8hQJmau5VWfpBHmrOUlmv2i320gz+sX86VMgAoytE="; PacerClientCode=""; PacerPref="receipt=Y"; default_form="cvb"'
-            }
-    values = {
-            'dl_fmt': 'csv',
-            'rrrr': '%3Frid%3DsHAiRwk3F5PKqmAdTQD6hJZnbkvcdj2knXmfqLpc%26page%3D1',
-            'rid': 'sHAiRwk3F5PKqmAdTQD6hJZnbkvcdj2knXmfqLpc',
-            }
-    res = curl.post(url, urllib.urlencode(values), header)
-    return res
+    stats_file = open('/home/chawu/Downloads/patents_stats/'+company_name+'.csv', 'w')
+    for key, value in stats.iteritems():
+        stats_file.write( company + '\t' + key + '\t' + str(value) + '\n' )
+    stats_file.close()
 
-def query():
-    url = 'https://pcl.uscourts.gov/dquery'
-    header = {
-            'Cookie': 'PacerUser="ru067301368070812                                VgiExokw6Qs"; PacerSession="/qIrk65kOCHIr9VGIdnn5L1anzMXe4m2mo8xBRCKYExL5t20e9hRjX/NFYjVxTQQjV8hQJmau5VWfpBHmrOUlmv2i320gz+sX86VMgAoytE="; PacerClientCode=""; PacerPref="receipt=Y"; default_form="cvb"'
-            }
-    values = {
-            'case_no': '',
-            'mdl_id': '',
-            'stitle': '',
-            'nos': '830',
-            'date_filed_start': '01/01/2000',
-            'date_filed_end': '12/31/2010',
-            'date_term_start': '',
-            'date_term_end': '',
-            'date_dismiss_start': '',
-            'date_dismiss_end': '',
-            'date_discharge_start': '',
-            'date_discharge_end': '',
-            'party': 'Apple',
-            'exact_party': 'exact_party',
-            'ssn4': '',
-            'ssn': '',
-            'court_type': 'cv',
-            'default_form': 'cvb',
-            }
-    res = curl.post(url, urllib.urlencode(values), header)
-    return res
+def add_case_property(row, company, browser):
+    print row[15].replace('iqquerymenu', 'qrySummary')
+    browser.get(row[15].replace('iqquerymenu', 'qrySummary'))
+    try:
+        elem = browser.find_element_by_xpath('//*[@id="cmecfMainContent"]/table[2]')
+        if elem.text.lower().find('defendant: '+company.lower()) != -1:
+            row.append('Defendant')
+        elif elem.text.lower().find('plaintiff: '+company.lower()) != -1:
+            row.append('Plaintiff')
+        else:
+            row.append('None')
+    except:
+        row.append('None')
+
+    print row
+    return row
 
 
+if __name__ == '__main__':
+    browser = webdriver.Chrome()
 
-if __name__ == "__main__":
-    print query()
+    company_list = open('unique_companylist.txt').read().split('\n')
+    print len(company_list)
+    print company_list
+
+    for company in company_list:
+        if company == '':
+            continue
+        download_by_company(browser, company)
+    
+    browser.close()
+    call("pkill chromedriver", shell=True)
+
 
