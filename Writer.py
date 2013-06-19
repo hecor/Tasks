@@ -4,13 +4,8 @@
 from PatentXMLParser import *
 import sqlite3
 
-def create_database(dbname):
-#    pypyodbc.win_create_mdb( mdb_name )
-#    conn = pypyodbc.win_connect_mdb( mdb_name )
-    conn = sqlite3.connect(dbname)
-    c = conn.cursor()
-
-    c.execute(u"""create table patent_info
+def create_database(cursor):
+    cursor.execute(u"""create table patent_info
                 ( patent_number     varchar(16),
                   issue_date        varchar(16),
                   application_date  varchar(16),
@@ -18,7 +13,7 @@ def create_database(dbname):
                   PRIMARY KEY (patent_number)
                 )"""
             )
-    c.execute(u"""create table assignee_info
+    cursor.execute(u"""create table assignee_info
                 ( patent_number     varchar(16),
                   assignee          varchar(32),
                   assignee_city     varchar(32),
@@ -27,7 +22,7 @@ def create_database(dbname):
                   PRIMARY KEY (patent_number, assignee)
                 )"""
             )
-    c.execute(u"""create table citation_info
+    cursor.execute(u"""create table citation_info
                 ( patent_number       varchar(16),
                   cited_patent_number varchar(16),
                   cited_date          varchar(16),
@@ -37,9 +32,6 @@ def create_database(dbname):
                 )"""
             )
     
-    conn.commit()
-    conn.close()
-
 def write_to_database(cursor, patent_info):
     placeholder = ', '.join(['?']*4)
     cursor.execute("INSERT INTO patent_info values (" + placeholder + ")", 

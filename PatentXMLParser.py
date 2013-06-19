@@ -6,7 +6,7 @@ from bs4 import BeautifulSoup
 
 def parsePatentInfoFromXML_2005(xmlcontent):
     patent_info = {}
-    root = BeautifulSoup(xmlcontent, 'lxml')
+    root = BeautifulSoup(xmlcontent, 'xml')
 
     # Patent Number and Issue Date
     publication_reference = root.find('publication-reference')
@@ -83,40 +83,36 @@ def parsePatentInfoFromXML_2005(xmlcontent):
 
 def parsePatentInfoFromXML_2001(xmlcontent):
     patent_info = {}
-    root = BeautifulSoup(xmlcontent, 'lxml')
+    root = BeautifulSoup(xmlcontent, 'xml')
 
     # Patent Number and Issue Date
-    patent_info['patent_number'] = root.find('B110', recursive=True).text.strip()
+    patent_info['patent_number'] = root.find('B110').text.strip()
     patent_info['issue_date'] = root.find('B140').text.strip()
-    print patent_info
 
     # Application Date
-    application_reference = root.find('application-reference')
-    patent_info['application_date'] = application_reference.find('date').text.strip()
+    patent_info['application_date'] = root.find('B220').text.strip()
 
     # Classification
-    classification_national = root.find('classification-national')
-    patent_info['classification'] = classification_national.find('main-classification').text.strip()
+    patent_info['classification'] = root.find('B521').text.strip()
 
     # Assignees info
     assignees_info = []
     try:
-        assignees = root.find('assignees')
+        assignees = root.find_all('B731')
         if assignees is not None:
-            assignees = assignees.find_all('assignee')
             for assignee in assignees:
-                name = assignee.find('orgname').text.strip()
-                city = assignee.find('city')
+                name = assignee.find('NAM').text.strip()
+                city = assignee.find('CITY')
                 if city is None:
                     city = ""
                 else:
                     city = city.text.strip()
-                state = assignee.find('state')
+                state = assignee.find('STATE')
                 if state is None:
                     state = ""
                 else:
                     state = state.text.strip()
-                country = assignee.find('country')
+                country = assignee.find('CTRY')
                 if country is None:
                     country = ""
                 else:
@@ -127,28 +123,28 @@ def parsePatentInfoFromXML_2001(xmlcontent):
         pass
 
     patent_info['assignees'] = assignees_info
-        
+     
     # citation information
     citations_info = []
     try:
-        citations = root.find('references-cited').find_all('citation')
+        citations = root.find_all('B561')
         for citation in citations:
-            number = citation.find('doc-number').text.strip()
+            number = citation.find('DNUM').text.strip()
             country = citation.find('country')
             if country is None:
                 country = ""
             else:
                 country = country.text.strip()
-            date = citation.find('date')
+            date = citation.find('DATE')
             if date is None:
                 date = ""
             else:
                 date = date.text.strip()
-            category = citation.find('category')
+            category = citation.find(re.compile("^CITED-BY"))
             if category is None:
                 category = ""
             else:
-                category = category.text.strip()
+                category = category.name
 
             citations_info.append( (patent_info['patent_number'], number, date, country, category) )
     except:
@@ -161,8 +157,8 @@ def parsePatentInfoFromXML_2001(xmlcontent):
 
 
 if __name__ == '__main__':
-    xml = open('2001-2004.xml').read().split('<?xml version="1.0" encoding="UTF-8"?>')[1]
-    print xml
+    xml = open('2001-2004.xml').read().split('<?xml version="1.0" encoding="UTF-8"?>')[0]
+#    print xml
     print parsePatentInfoFromXML_2001(xml)
     
 
