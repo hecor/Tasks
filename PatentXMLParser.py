@@ -157,9 +157,8 @@ def parsePatentInfoFromXML_2001(xmlcontent):
 
 
 if __name__ == '__main__':
-    xml = open('2001-2004.xml').read().split('<?xml version="1.0" encoding="UTF-8"?>')[0]
-#    print xml
-    print parsePatentInfoFromXML_2001(xml)
+    for xml in open('data/pgb20010102.sgml').read().split('</PATDOC>'):
+        print parsePatentInfoFromXML_2001(xml)
     
 
 

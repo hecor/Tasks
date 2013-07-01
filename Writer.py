@@ -33,20 +33,27 @@ def create_database(cursor):
             )
     
 def write_to_database(cursor, patent_info):
-    placeholder = ', '.join(['?']*4)
-    cursor.execute("INSERT INTO patent_info values (" + placeholder + ")", 
-                    ( patent_info['patent_number'], patent_info['issue_date'],
-                      patent_info['application_date'], patent_info['classification'],
-                      ) )
-    placeholder = ', '.join(['?']*5)
-    cursor.executemany("INSERT INTO assignee_info values (" + placeholder + ")", patent_info['assignees'] )
-    placeholder = ', '.join(['?']*5)
-    for citation in patent_info['citations']:
-        try:
-            cursor.execute("INSERT INTO citation_info values (" + placeholder + ")", citation)
-        except sqlite3.IntegrityError:
-            pass
+    try:
+        placeholder = ', '.join(['?']*4)
+        cursor.execute("INSERT INTO patent_info values (" + placeholder + ")", 
+                        ( patent_info['patent_number'], patent_info['issue_date'],
+                          patent_info['application_date'], patent_info['classification'],
+                          ) )
+        placeholder = ', '.join(['?']*5)
+        for assignee in patent_info['assignees']:
+            try:
+                cursor.execute("INSERT INTO assignee_info values (" + placeholder + ")", assignee)
+            except sqlite3.IntegrityError:
+                pass
 
+        placeholder = ', '.join(['?']*5)
+        for citation in patent_info['citations']:
+            try:
+                cursor.execute("INSERT INTO citation_info values (" + placeholder + ")", citation)
+            except sqlite3.IntegrityError:
+                pass
+    except sqlite3.IntegrityError:
+        pass
 
 
 if __name__ == '__main__':
